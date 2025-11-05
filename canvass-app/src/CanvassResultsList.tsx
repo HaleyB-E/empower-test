@@ -1,18 +1,21 @@
-import { CanvassResult } from "./types";
+import { CanvassResult } from './types';
 
 export default function CanvassResultsList({resultsList}: {resultsList: CanvassResult[]}) {
 
   return(
-    <div>
-      <h1>Canvass Results</h1>
-      <ul>
-        {resultsList.map(result => (
-          <li key={result.id}>
-            <b>{result.name}: </b>
-            {result.notes}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <table className='results-list'>
+      <thead>
+        <th>Name</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+      {resultsList.map(result => (
+        <tr key={result.id}>
+          <td>{result.name}</td>
+          <td>{result.notes}</td>
+        </tr>
+      ))}
+      </tbody>
+    </table>
   );
 }

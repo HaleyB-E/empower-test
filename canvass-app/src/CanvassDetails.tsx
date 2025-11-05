@@ -30,25 +30,28 @@ export default function CanvassDetails() {
 
   // todo: validation
   return (
-    <div>
+    <div className='results-details'>
       <h1> Enter Contact Details</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='contactName'>Contact Name: </label>
-        <input 
-          type='text'
-          id='contactName'
-          name='contactName'
-          value={canvassData.name}
-          onChange={setName}
-        />
+        <label htmlFor='contactName'>Contact Name
+         </label>
+          <input 
+            type='text'
+            id='contactName'
+            name='contactName'
+            value={canvassData.name}
+            onChange={setName}
+          />
         <br/>
-        <label htmlFor='contactNotes'>Notes: </label>
-        <textarea
-          id='contactNotes'
-          name='contactNotes'
-          value={canvassData.notes}
-          onChange={setNotes}
-        />
+        <div className='contactNotesContainer'>
+          <label htmlFor='contactNotes'>Notes</label>
+            <textarea
+              id='contactNotes'
+              name='contactNotes'
+              value={canvassData.notes}
+              onChange={setNotes}
+            />
+        </div>
         <input type='submit'/>
       </form>
     </div>
