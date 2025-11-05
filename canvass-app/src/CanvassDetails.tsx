@@ -14,7 +14,7 @@ export default function CanvassDetails() {
     ev.preventDefault();
     
     // TODO: add data validation
-    axios.post(`${baseUrl}/new`, canvassData).then((data: any) => {
+    axios.post(`${baseUrl}/canvass-response`, canvassData).then((data: any) => {
         console.log(data);
     });
     navigate('/');

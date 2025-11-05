@@ -2,8 +2,9 @@
 To run frontend: run `npm start` in `canvass-app` folder
 To run backend: run `node server.js` in `canvass-app/server` folder
 In order for app to work, start both frontend and backend. 
-App will be accessible at `localhost:3000`, and backend uses port 8080.
-Canvassing results added to the app will persist across page refresh, but not across backend restart (I didn't connect the app to a real database so it's just getting stored in a variable in the backend)
+- App will be accessible at `localhost:3000`, and backend uses port 8080.
+- Canvassing results added to the app will persist across page refresh, but not across backend restart (I didn't connect the app to a real database so it's just getting stored in a variable in the backend)
+- NOTE: there's a race condition in the code that's loading the canvassing results which means you may *need* to refresh the page in order to see the results. This seems quite fixable but I didn't run into it until right as I was running out of time so I have not done so.
 
 # Notes
 - No generative AI was used in the creation of this project
@@ -13,11 +14,30 @@ Canvassing results added to the app will persist across page refresh, but not ac
     - Basic, ugly frontend-only form to collect canvassing info
     - Updated form page to send canvass info to server (this doesn't save to a real database)
     - Update to homepage to load list of canvass responses from server
-- Further planned updates:
     - Make page styling consistent (not fancy, but less terrible)
     - Update app to support deleting items
+- Intended updates I ran out of time for:
     - Update app to support editing items
 At that point, basic CRUD for list + details page will be complete, and I'll start working on further visual polish.
+
+# Limitations and Future Work
+
+- For some reason I kept flopping between calling entries "canvass responses" and "canvass results" - I think I kept noticing "response" was a bad word to use when handling API stuff since it can be kind of confusing, but had already used it for some stuff in the frontend and didn't feel I had time to go back to change it. That would be something to target for cleanup if this were a real project
+
+If I had written tests, they would be:
+- verify that we can save new canvassing result and get OK response
+- verify that we can load list of canvassing results and get expected number + type of responses
+- verify that we can edit/delete existing canvassing results and only the targeted results would get edited/deleted (if edit/delete functionality is implemented)
+- Verify that sending malformed canvassing result will not save inappropriate data (and various other things dependent on validation that I didn't implement)
+
+If I had spent more time on validation, I would:
+- sanitize text inputs to avoid injection attacks
+- Make name required (and maybe also notes, but would need to assess based on product needs - sometimes it's useful just to know that someone was talked to)
+- do better error handling in general (I think I called that out in a couple of specific places)
+
+Other things that might spruce this up a bit that have not already been covered:
+- Additional data (user is called out in the instructions, but date entered/edited would also be useful)
+- consider easier keyboard navigation in new canvassing result entry - should "enter" submit from anywhere? should it move you to next textbox if you're in the name section? good way to increase efficiency for people doing lots of data entry, but need to make sure it's intuitive behavior
 
 Everything below this is generated as part of create-react-app
 
