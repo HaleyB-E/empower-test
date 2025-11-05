@@ -2,14 +2,15 @@ import {useState} from 'react';
 import './App.css';
 import { Link } from 'react-router';
 import axios from 'axios';
+import {baseUrl} from './types';
 
 function App() {
   const [canvassResults, setCanvassResults] = useState([]);
 
   const getCanvassResults = () => {
-    axios.get('http://localhost:8080/response-list').then((data: any) => {
+    axios.get(`${baseUrl}/response-list`).then((data: any) => {
       console.log(data);
-    })
+    });
   }
 
   return (

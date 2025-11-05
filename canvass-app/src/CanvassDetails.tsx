@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import {useNavigate} from 'react-router';
+import axios from 'axios';
+import {baseUrl} from './types';
 
 export default function CanvassDetails() {
   const navigate = useNavigate();
@@ -10,7 +12,11 @@ export default function CanvassDetails() {
 
   const handleSubmit = (ev: any) => {
     ev.preventDefault();
-    // TODO: save to server
+    
+    // TODO: add data validation
+    axios.post(`${baseUrl}/new`, canvassData).then((data: any) => {
+        console.log(data);
+    });
     navigate('/');
   }
 
