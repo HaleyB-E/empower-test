@@ -9,7 +9,7 @@ app.use(express.json());
 let fakeCanvassResponseDataTable = [];
 
 app.get('/response-list', (req, res) => {
-  res.send('Hello World!')
+  res.send(fakeCanvassResponseDataTable);
 });
 
 app.post('/new', (req, res) => {

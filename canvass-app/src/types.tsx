@@ -1,4 +1,5 @@
-export interface ContactRecord {
+export interface CanvassResult {
+    id?: string;
     name: string;
     notes: string;
 }
