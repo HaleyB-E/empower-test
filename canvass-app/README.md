@@ -1,22 +1,25 @@
+# How To Use
 To run frontend: run `npm start` in `canvass-app` folder
 To run backend: run `node server.js` in `canvass-app/server` folder
-In order for app to work, start both frontend and backend. App will be accessible at `localhost:3000`, and backend uses port 8080.
+In order for app to work, start both frontend and backend. 
+App will be accessible at `localhost:3000`, and backend uses port 8080.
+Canvassing results added to the app will persist across page refresh, but not across backend restart (I didn't connect the app to a real database so it's just getting stored in a variable in the backend)
 
-Notes from Haley:
+# Notes
 - No generative AI was used in the creation of this project
 - I initially hoped to use `next.js` to set this up. I've used `create-react-app` before so I'm more familiar with it, but it has been out of support for awhile and is no longer recommended for new projects. I've seen `next.js` recommended as a successor, but haven't had time to look into it much as my recent side project has had me focused on learning ruby on rails. It turns out `next.js` is way more opinionated than `create-react-app` in some ways that it's outside the scope of the take-home for me to learn well enough to produce something I feel comfortable turning in, so after about 45 minutes of hacking at it I am returning to the out-of-date option I know better.
 - Stuff I did, approximately in order:
     - Basic, ugly frontend-only homepage
     - Basic, ugly frontend-only form to collect canvassing info
-- Steps I plan to take to solve this problem:
-    - Basic frontend-only page: display list of collected info
-    - Update form page to send canvass info to server (I will not be interacting with a real sql server, but will fake it in some way here)
-    - Update list page to retrieve canvass info from server
+    - Updated form page to send canvass info to server (this doesn't save to a real database)
+    - Update to homepage to load list of canvass responses from server
+- Further planned updates:
+    - Make page styling consistent (not fancy, but less terrible)
     - Update app to support deleting items
     - Update app to support editing items
-At that point, basic CRUD for list + details page will be complete, and I'll start working on polish:
-- Using next.js' Form implementation rather than generic `form`
-- Using styling that isn't what came with the next.js framework's default page
+At that point, basic CRUD for list + details page will be complete, and I'll start working on further visual polish.
+
+Everything below this is generated as part of create-react-app
 
 # Getting Started with Create React App
 

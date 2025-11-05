@@ -12,7 +12,6 @@ function App() {
     axios.get(`${baseUrl}/response-list`).then((resp: AxiosResponse) => {
       // todo: error handling
       setCanvassResults(resp.data);
-      // todo: type checking
     });
   }
 
