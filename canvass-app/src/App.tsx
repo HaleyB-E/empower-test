@@ -1,17 +1,15 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import './App.css';
-import CanvassDetails from './CanvassDetails';
 import { Link } from 'react-router';
+import axios from 'axios';
 
 function App() {
-  const [showCanvassDetails, setShowCanvassDetails] = useState(false);
-
   const [canvassResults, setCanvassResults] = useState([]);
 
-  const onAddNewClick = (ev: any) => {
-    if (!showCanvassDetails) {
-      setShowCanvassDetails(true);
-    }
+  const getCanvassResults = () => {
+    axios.get('http://localhost:8080/response-list').then((data: any) => {
+      console.log(data);
+    })
   }
 
   return (
@@ -19,10 +17,11 @@ function App() {
       <header className='App-header'>
         <h1>Let's Go Canvassing!!!</h1>
         <Link to='new'>
-          <button type='button' onClick={onAddNewClick}>
+          <button type='button'>
             Add New Contact Record
           </button>
         </Link>
+        <button type='button' onClick={getCanvassResults}> API CALL TEST</button>
       </header>
     </div>
   );
