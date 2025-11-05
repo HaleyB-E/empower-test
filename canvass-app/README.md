@@ -1,10 +1,11 @@
 # How To Use
 To run frontend: run `npm start` in `canvass-app` folder
 To run backend: run `node server.js` in `canvass-app/server` folder
-In order for app to work, start both frontend and backend. 
+In order for app to work, both frontend and backend must be running. 
 - App will be accessible at `localhost:3000`, and backend uses port 8080.
 - Canvassing results added to the app will persist across page refresh, but not across backend restart (I didn't connect the app to a real database so it's just getting stored in a variable in the backend)
-- NOTE: there's a race condition in the code that's loading the canvassing results which means you may *need* to refresh the page in order to see the results. This seems quite fixable but I didn't run into it until right as I was running out of time so I have not done so.
+- NOTE: there's a race condition in the code that's loading the canvassing results which means you may *need* to refresh the page in order to see the results. This seems quite fixable but I didn't run into it until right as I was wrapping up the delete work + was already a bit over on time, due to the kerfuffle with next.js (see notes section), so I left this unhandled.
+- Making input labels look nice is apparently my Kryptonite. I spent 15 minutes on this before deciding it was a better use of my time to do something else. Alas, they are aligned terribly.
 
 # Notes
 - No generative AI was used in the creation of this project
